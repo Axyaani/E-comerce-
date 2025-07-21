@@ -3,7 +3,7 @@ import React from "react";
 const PopularProducts = () => {
   return (
     <section className="bg-gray-100 px-4 py-16 lg:px-20">
-      {/* Header */}
+    
       <div className="flex items-center justify-between mb-8">
         <h2 className="text-3xl font-bold">Most Popular</h2>
         <div className="space-x-3 text-xl text-gray-500">
@@ -12,7 +12,7 @@ const PopularProducts = () => {
         </div>
       </div>
 
-      {/* Categories */}
+   
       <div className="flex space-x-6 text-sm font-medium mb-10">
         <span className="text-black underline">All</span>
         <span className="text-gray-500 hover:text-black cursor-pointer">Smartphones</span>
@@ -21,7 +21,7 @@ const PopularProducts = () => {
         <span className="text-gray-500 hover:text-black cursor-pointer">Others</span>
       </div>
 
-      {/* Product Grid */}
+   
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {/* Product 1 - SALE */}
         <div className="bg-white p-4 rounded-lg shadow relative">
@@ -36,7 +36,7 @@ const PopularProducts = () => {
           <p className="text-black font-semibold text-sm">$38.00</p>
         </div>
 
-        {/* Product 2 - HOT */}
+      
         <div className="bg-white p-4 rounded-lg shadow relative">
           <span className="absolute top-4 right-4 bg-orange-500 text-white text-xs px-2 py-1 rounded font-semibold">HOT</span>
           <img
@@ -48,7 +48,7 @@ const PopularProducts = () => {
           <p className="text-black font-semibold text-sm">$122.00</p>
         </div>
 
-        {/* Product 3 - OUT OF STOCK */}
+  
         <div className="bg-white p-4 rounded-lg shadow relative">
           <span className="absolute top-4 right-4 bg-red-600 text-white text-xs px-2 py-1 rounded font-semibold">OUT OF STOCK</span>
           <img
