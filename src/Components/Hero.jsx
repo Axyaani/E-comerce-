@@ -6,7 +6,7 @@ const Hero = () => {
       
      
 
-      {/* Left Content */}
+    
       <div className="flex-1 max-w-2xl">
         <h1 className="text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
           The Device That<br />Takes You Higher.
@@ -19,7 +19,7 @@ const Hero = () => {
         </button>
       </div>
 
-      {/* Right Image & Numbers */}
+  
       <div className="flex-1 relative mt-12 lg:mt-0 flex flex-col items-center">
         <img
           src="https://html.themexplosion.com/goru/assets/images/home/1.jpg"
