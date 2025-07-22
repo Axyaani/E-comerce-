@@ -1,57 +1,64 @@
+import ProductList from "../Components/ProductList";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Search } from "lucide-react";
 
 const Shop = () => {
+  const [data,setData ] = useState([])
+  const [serch, setSerch]= useState("")
+  const [selectgatogry, setSelectgatogry]= useState("")
+  // console.log(selectgatogry)
+
+  const handleRead = ()=>{
+    // Reading Api
+    axios.get("https://fakestoreapi.com/products").then((res)=>{
+      setData(res.data)
+    }).catch(error=>console.log(error))
+  }
+  useEffect(()=>{
+    handleRead()
+  },[])
+  // filterData
+  const filterData = data.filter((xog)=>{
+    const searchData = xog.title.toLowerCase().includes(serch.toLowerCase())
+    // matchedCategory
+    const matchedCategory = selectgatogry ? xog.category === selectgatogry:true
+    return searchData && matchedCategory
+  })
   return (
 <div>
     <Header/>
-        <div className="bg-gray-50 py-12 px-4 md:px-20 min-h-screen">
-      <h2 className="text-3xl font-bold text-center text-gray-800 mb-10">
-        Shop Our Products
-      </h2>
-
-         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-        {/* Product 1 - SALE */}
-        <div className="bg-white p-4 rounded-lg shadow relative">
-          <span className="absolute top-4 right-4 bg-blue-600 text-white text-xs px-2 py-1 rounded font-semibold">SALE</span>
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM-cLKUIfng58dyKtc9tlDQ_851m5GyFhUJw&s"
-            alt="Gaming Headset"
-            className="w-full h-48 object-contain"
-          />
-          <h3 className="mt-4 font-bold">Gaming Headset</h3>
-          <p className="text-gray-500 line-through text-sm">$42.00</p>
-          <p className="text-black font-semibold text-sm">$38.00</p>
-        </div>
-
-        {/* Product 2 - HOT */}
-        <div className="bg-white p-4 rounded-lg shadow relative">
-          <span className="absolute top-4 right-4 bg-orange-500 text-white text-xs px-2 py-1 rounded font-semibold">HOT</span>
-          <img
-            src="https://microless.com/cdn/products/54e5cdfa417d9f89b9b8c3a206d226e6-hi.jpg"
-            alt="VR Headset"
-            className="w-full h-48 object-contain"
-          />
-          <h3 className="mt-4 font-bold">VR Headset</h3>
-          <p className="text-black font-semibold text-sm">$122.00</p>
-        </div>
-
-        {/* Product 3 - OUT OF STOCK */}
-        <div className="bg-white p-4 rounded-lg shadow relative">
-          <span className="absolute top-4 right-4 bg-red-600 text-white text-xs px-2 py-1 rounded font-semibold">OUT OF STOCK</span>
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmHcEKd3Nqr3Nm3_3hSezsH6Z4wtiriGK6TA&s"
-            alt="Wireless Headphones"
-            className="w-full h-48 object-contain"
-          />
-          <h3 className="mt-4 font-bold">Wireless Headphones</h3>
-          <p className="text-gray-500 line-through text-sm">$32.00</p>
-          <p className="text-black font-semibold text-sm">$28.00</p>
-        </div>
+    <div className="flex  items-center p-8 mt-28">
+      <input value={serch} onChange={(e)=> setSerch(e.target.value)}  className="w-52 h-10 outline-none border-2 border-gray-400 pl-4 rounded-lg" type="search" placeholder="Search product" />
+      <div className="flex gap-4 text-black text-xl ml-3">
+        <input type="radio"name="category" value="" onChange={()=>setSelectgatogry("")} />All
+        <input type="radio"name="category" value="electronics" onChange={()=> setSelectgatogry("electronics")} />Electronics
+       < input type="radio"name="category" value="jewelery" onChange={()=> setSelectgatogry("jewelery")} />jewelery
+       <input type="radio" name="category" value="men's clothing" onChange={()=> setSelectgatogry("men's clothing")}/>men's clothing
+       <input type="radio" name="category" value="women's clothing" onChange={()=> setSelectgatogry("women's clothing")}/>  women's clothing
       </div>
     </div>
-    <Footer/>
+    {/* printing api data using props  */}
+    <div className="grid grid-cols-3 -ml-52 px-14 ">
+           {
+        filterData.map((item)=>{
+          return <ProductList product={item}/>
+
+        
+        })
+      }
+
+    </div>
+  
+    
+
+
+  
+
+   
+    {/* <Footer/> */}
 </div>
   );
 };

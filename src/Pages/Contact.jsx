@@ -6,7 +6,7 @@ const Contact = () => {
   return (
 <div>
    <Header/>
-       <div className="bg-gray-50 min-h-screen py-12 px-4 md:px-20">
+       <div className="bg-gray-50 min-h-screen py-12 px-4 md:px-20 mt-16">
       <div className="max-w-5xl mx-auto bg-white rounded-lg shadow-lg p-8">
         <h2 className="text-3xl font-bold mb-6 text-gray-800 text-center">
           Contact Us

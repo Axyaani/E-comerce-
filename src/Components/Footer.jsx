@@ -38,8 +38,19 @@ const Footer = () => {
     
         </div>
 
-    
+     
+        <div>
+          <h3 className="font-bold text-black mb-3">Account</h3>
+          <ul className="space-y-2">
+            <li><a href="#">My Account</a></li>
+            <li><a href="#">Log in</a></li>
+            <li><a href="#">Sign Up</a></li>
+            <li><a href="#">Purchases</a></li>
+            <li><a href="#">Shipping Address</a></li>
+          </ul>
+        </div>
 
+        {/* Contact & Address */}
         <div>
           <h3 className="font-bold text-black mb-3">Contact & Address</h3>
           <p>123 Street, Gandy Street, Syracuse New York - 13221.</p>
@@ -47,7 +58,7 @@ const Footer = () => {
           <p>Email: info@goru.com</p>
         </div>
 
-     
+        {/* Subscribe */}
         <div>
           <h3 className="font-bold text-black mb-3">Subscribe</h3>
           <input
@@ -61,7 +72,7 @@ const Footer = () => {
         </div>
       </div>
 
-   
+    
       <div className="border-t px-4 py-4 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
         <div>
           <span className="mr-3">Privacy Policy</span> |{" "}
@@ -73,7 +84,7 @@ const Footer = () => {
         </div>
       </div>
 
-
+    
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         className="absolute bottom-5 right-5 bg-blue-600 hover:bg-blue-700 text-white p-2 rounded shadow"

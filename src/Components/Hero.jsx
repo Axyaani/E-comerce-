@@ -2,12 +2,12 @@ import React from 'react';
 
 const Hero = () => {
   return (
-    <section className="flex flex-col lg:flex-row items-center justify-between px-6 lg:px-20 py-12 bg-gray-50 min-h-screen relative">
+    <section className="flex flex-col lg:flex-row items-center justify-between px-6 lg:px-20 py-12 bg-gray-50 min-h-screen relative mt-20">
       
      
 
     
-      <div className="flex-1 max-w-2xl">
+      <div className="flex-1 max-w-2xl -mt-36">
         <h1 className="text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
           The Device That<br />Takes You Higher.
         </h1>
